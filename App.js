@@ -1,19 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Pressable } from 'react-native';
-import { CustomButton,CustomTextInput } from './src/components/index'
-export default function App() {
+import { StyleSheet,View } from 'react-native'
+import CustomButton from './src/components/CustomButton/CustomButton'
+import React from 'react'
+
+const App = () => {
   return (
     <View style={styles.container}>
-      <CustomButton/>
+      <CustomButton
+      onPress={()=> console.log("calisti...")}
+      buttonText='Login'
+      />
+      
+
     </View>
-  );
+  )
 }
 
+export default App
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  container:{
+    justifyContent:'center',
+    alignItems:'center',
+    flex:1
+  }
+})
