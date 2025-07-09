@@ -1,11 +1,11 @@
-import ForgotPasswordPage from "./ForgotPasswordPage";
-import HomePage from "./HomePage";
-import LoginPage from "./LoginPage";
-import SignUpPage from "./SignUpPage";
+import ForgotPasswordPage from "./ForgotPassword/ForgotPasswordPage";
+import HomePage from "./Home/HomePage";
+import LoginPage from "./Login/LoginPage";
+import SignUpPage from "./SignUp/SignUpPage";
 
 export{
     ForgotPasswordPage,
     HomePage,
     LoginPage,
-    SignUpPage,
+    SignUpPage
 }

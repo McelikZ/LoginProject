@@ -1,7 +1,12 @@
 export default {
-  tiny: 8,
-  small: 16,
-  medium: 24,
-  large: 40,
-  xlarge: 80,
+  tiny: 4,
+  small: 8,
+  smallMedium: 12,
+  medium: 16,
+  mediumLarge: 24,
+  large: 32,
+  xlarge: 48,
+  xxlarge: 64,
+  huge: 96,
+  massive: 128,
 };

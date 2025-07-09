@@ -5,15 +5,13 @@ export default StyleSheet.create({
 defaultButton:{
  alignItems:'center',
  justifyContent:'center',
- borderRadius:25,
- backgroundColor:colors.primary,
+ borderRadius:20,
+ backgroundColor:colors.error,
  paddingVertical:spacing.medium,
- paddingHorizontal:spacing.xlarge,
+ paddingHorizontal:spacing.massive,
 },
 defaultButtonText:{
  color:colors.secondary,
- fontSize:fonts.sizes.medium,
- alignItems:'center',
- justifyContent:'center',
+ fontSize:fonts.sizes.large,
 }
 })
