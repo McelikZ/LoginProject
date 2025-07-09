@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
+import {Text, View } from 'react-native'
 import React from 'react'
+import styles from "./ForgotPasswordPage.style"
 
 const ForgotPasswordPage = () => {
   return (
@@ -10,5 +11,3 @@ const ForgotPasswordPage = () => {
 }
 
 export default ForgotPasswordPage
-
-const styles = StyleSheet.create({})

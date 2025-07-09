@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import styles from "./SignUpPage.style"
 
 const SignUpPage = () => {
   return (
@@ -10,5 +11,3 @@ const SignUpPage = () => {
 }
 
 export default SignUpPage
-
-const styles = StyleSheet.create({})

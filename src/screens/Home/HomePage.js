@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import React from 'react'
+import styles from './HomePage.style'
 
 const HomePage = () => {
   return (
@@ -10,5 +11,3 @@ const HomePage = () => {
 }
 
 export default HomePage
-
-const styles = StyleSheet.create({})

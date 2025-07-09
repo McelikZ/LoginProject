@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
+import {Text, View } from 'react-native'
 import React from 'react'
+import styles from "./LoginPage.style"
 
 const LoginPage = () => {
   return (
@@ -10,5 +11,3 @@ const LoginPage = () => {
 }
 
 export default LoginPage
-
-const styles = StyleSheet.create({})
