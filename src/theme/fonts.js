@@ -1,7 +1,7 @@
 export default {
   sizes: {
     small: 12,
-    medium: 16,
+    medium: 14,
     large: 24,
     xlarge: 32,
   },

@@ -1,21 +1,11 @@
 import { StyleSheet,View } from 'react-native'
 import { CustomButton,CustomTextInput } from './src/components/index'
+import { LoginPage } from './src/screens/index'
 import React from 'react'
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      
-      <CustomTextInput/>
-      <CustomTextInput
-      isSecureText={true}
-      />
-
-      <CustomButton
-      onPress={()=> console.log("calisti...")}
-      buttonText='Login'
-      />
-    </View>
+    <LoginPage/>
   )
 }
 

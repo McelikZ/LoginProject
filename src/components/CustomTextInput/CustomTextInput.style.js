@@ -3,20 +3,21 @@ import { colors, spacing, fonts } from "../../theme/index";
 
 export default StyleSheet.create({
   defaultTextInput: {
-    borderRadius: 15,
+    borderRadius: 10,
     width: 300,
-    height: 50,
-    borderWidth: 1,
-    borderColor: colors.primary, 
-    textAlign: 'center',
+    height: 60,
+    borderWidth: 0.5, 
+    borderColor: colors.textPrimary,
+    textAlign: 'left',
     textAlignVertical: 'center', 
     fontWeight: 'bold',
-    fontSize: fonts.sizes.large,
+    fontSize: fonts.sizes.medium,
     color: colors.primary,
-    paddingHorizontal: spacing.medium, 
+    paddingHorizontal: spacing.medium,
   },
   defaultTextInputText: {
     color: colors.primary,
     fontSize: fonts.sizes.large,
   },
 });
+
