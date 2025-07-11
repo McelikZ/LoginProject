@@ -3,10 +3,10 @@ import { colors, spacing, fonts } from "../../theme/index";
 
 export default StyleSheet.create({
   defaultTextInput: {
-    borderRadius: 10,
+    borderRadius: 15,
     width: 300,
-    height: 60,
-    borderWidth: 0.5, 
+    height: 55,
+    borderWidth: 0.3, 
     borderColor: colors.textPrimary,
     textAlign: 'left',
     textAlignVertical: 'center', 
@@ -14,6 +14,7 @@ export default StyleSheet.create({
     fontSize: fonts.sizes.medium,
     color: colors.primary,
     paddingHorizontal: spacing.medium,
+    margin:5,
   },
   defaultTextInputText: {
     color: colors.primary,

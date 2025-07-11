@@ -2,6 +2,7 @@ import {Text, View,SafeAreaView } from 'react-native'
 import React from 'react'
 import styles from "./LoginPage.style"
 import { CustomImage,CustomButton,CustomTextInput } from '../../components/index'
+import { colors, fonts } from '../../theme';
 
 const LoginPage = () => {
   return (
@@ -17,22 +18,58 @@ const LoginPage = () => {
 
       <View style={styles.contentContainer}>
         <CustomTextInput
-        textTitle=''
         handlePlaceHolder='User name'
-         
         />
         <CustomTextInput
-         textTitle=''
          handlePlaceHolder='Password'
-         textInputStyle={{ marginBottom: 45 }}
-
+         isSecureText={true}
         />
+        <CustomButton
+        buttonStyle={{ backgroundColor: 'white', alignSelf: 'flex-end',paddingHorizontal:15 }}
+        buttonTextStyle={{color:'#0165ff',fontSize:15,}}
+        buttonText='Forget password'
+        />
+        <CustomButton
+        buttonStyle={{backgroundColor:'#0165ff',paddingHorizontal:120,paddingVertical:10,borderRadius:15}}
+        buttonText='Login'
+        />
+        <Text style={styles.orContinueWithStyle}>Or Continue with</Text>
         
       </View>
-
+      
       <View style={styles.footerContainer}>
-        <Text>deneme</Text>
+      <CustomButton
+      buttonText=''
+      buttonStyle={{backgroundColor:'white'}}
+      source={require('../../../assets/Images/GoogleIcon.png')}
+      imageStyle={{width:50,height:70}}
+      onPress={()=> console.log('Google')}
+      />
+      <CustomButton
+      buttonText=''
+      buttonStyle={{backgroundColor:'white'}}
+      source={require('../../../assets/Images/FacebookIcon.png')}
+      imageStyle={{width:50,height:50}}
+      onPress={()=> console.log('Facebook')}
+      />
       </View>
+
+      <View style={styles.bottomTextContainer}>
+
+      <Text style={styles.haventAnyAccountStyle}>
+        Haven't any account 
+      </Text>
+      <CustomButton
+      isTextOnly={true}
+      buttonStyle={{ }}
+      buttonTextStyle={{color:'#0165ff',paddingHorizontal:5,fontSize:15,}}
+      buttonText='Sign up?'
+      />
+      
+
+      </View>
+      
+      
 
     </SafeAreaView>
   );

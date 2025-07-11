@@ -13,15 +13,17 @@ const CustomTextInput = ({
 }) => {
   return (
     <View>
-      <Text style={[styles.defaultTextInputText, textStyle]}>
+      {/* <Text style={[styles.defaultTextInputText, textStyle]}> // gerekli olduğu takdirde textInputun üst tarafına yerleştirilecek 'text'
         {textTitle}
-      </Text>
+      </Text> */}  
+
       <TextInput
         style={[styles.defaultTextInput, textInputStyle]}
         placeholder={handlePlaceHolder}
         onChangeText={handleOnchangeText}
         value={handleValue}
         secureTextEntry={isSecureText}
+        
       />
     </View>
   )
