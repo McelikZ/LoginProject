@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet,StatusBar,Platform } from "react-native";
 import {colors,spacing,fonts} from "../../theme/index"
 
 export default StyleSheet.create({
@@ -7,33 +7,33 @@ export default StyleSheet.create({
     flex:1,
     alignItems:'center',
     justifyContent:'center', 
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
    },
    headerContainer:{
     flex:2,
     alignItems:'center',
     justifyContent:'center',
-    paddingTop:75
+    marginTop:20
    },
    contentContainer: {
     flex: 2,
     alignItems: 'center',
-    paddingTop:140
+    paddingTop:120,
    },
    footerContainer:{
     flex:1,
     alignItems:'center',
-    justifyContent:'center',
     flexDirection: 'row',
-    paddingTop:170,
+    paddingTop:100,
    },
    bottomTextContainer:{
-    flex:1,
     flexDirection: 'row',
+    paddingBottom:50,
    },
    signInStyle:{
     fontWeight:'bold',
     fontSize:fonts.sizes.xlarge,
-    marginBottom:0,
+    marginBottom:20,
     opacity:0.8,
    },
    enterValidStyle:{
@@ -44,10 +44,8 @@ export default StyleSheet.create({
     opacity:0.5,
    },
    haventAnyAccountStyle:{
-   marginBottom: 60,  
    opacity: 0.8,     
-   fontSize: fonts.sizes.medium,  
-   fontSize:15,
+   fontSize: fonts.sizes.smallMedium,  
    }
 
 })

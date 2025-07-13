@@ -5,13 +5,13 @@ import styles from './CustomButton.style';
 const CustomButton = ({
   onPress,
   buttonText = 'default',
+  showText=true,
   buttonStyle = {},
   buttonTextStyle = {},
   imageStyle = {},
   source,
-  isTextOnly = false, // 👈 Ekledik
+  isTextOnly = false, 
 }) => {
-  // Eğer sadece Text gösterilmek isteniyorsa
   if (isTextOnly) {
     return (
       <Text onPress={onPress} style={buttonTextStyle}>
@@ -20,8 +20,8 @@ const CustomButton = ({
     );
   }
 
-  // Normal buton yapısı
   return (
+
     <Pressable onPress={onPress} style={[styles.defaultButton, buttonStyle]}>
       {source && (
         <Image
@@ -29,9 +29,15 @@ const CustomButton = ({
           source={source}
         />
       )}
-      <Text style={[styles.defaultButtonText, buttonTextStyle]}>
+
+      
+      {showText &&(
+        <Text style={[styles.defaultButtonText, buttonTextStyle]}>
         {buttonText}
       </Text>
+
+      )}
+      
     </Pressable>
   );
 };

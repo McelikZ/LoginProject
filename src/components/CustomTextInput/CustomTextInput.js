@@ -4,6 +4,7 @@ import React from 'react'
 
 const CustomTextInput = ({
   textTitle = 'default',
+  showLabel=false,
   textStyle = {},
   textInputStyle = {},
   handlePlaceHolder = 'Default',
@@ -13,10 +14,12 @@ const CustomTextInput = ({
 }) => {
   return (
     <View>
-      {/* <Text style={[styles.defaultTextInputText, textStyle]}> // gerekli olduğu takdirde textInputun üst tarafına yerleştirilecek 'text'
+      { showLabel &&(
+        <Text style={[styles.defaultTextInputText, textStyle]}> 
         {textTitle}
-      </Text> */}  
-
+      </Text> 
+      )}
+        
       <TextInput
         style={[styles.defaultTextInput, textInputStyle]}
         placeholder={handlePlaceHolder}

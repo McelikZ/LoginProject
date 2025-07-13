@@ -5,18 +5,22 @@ export default StyleSheet.create({
   defaultButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 20,
-    backgroundColor: colors.error,
-    paddingVertical: spacing.smallMedium,
-    paddingHorizontal: spacing.large, 
+    borderRadius: 15,
+    backgroundColor: colors.textSecondary,
+    paddingVertical: spacing.small,
+    paddingHorizontal: spacing.huge, 
   },
   defaultButtonText: {
     color: colors.secondary,
     fontSize: fonts.sizes.large,
   },
   defaultButtonImageStyle:{
-    height:30,
-    width:30,
+    width: 60,       
+    height: 60,       
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    resizeMode:'contain',
   }
 
 });
