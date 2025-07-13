@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './ForgotPasswordPage.style';
 import { CustomButton, CustomImage, CustomTextInput } from '../../components/index';
 
-const ForgotPasswordPage = () => {
+const ForgotPasswordPage = ({navigation}) => {
   return (
     <SafeAreaView
     style={styles.mainContainer}
@@ -30,8 +30,8 @@ const ForgotPasswordPage = () => {
 
         <View style={styles.contentContainer}>
           <CustomTextInput
-            handlePlaceHolder='Email Address'
-            textInputStyle={{ margin: 15 }}
+          iconSource={require('../../../assets/Images/EmailIcon.png')}
+          placeholder='Email Address'
           />
 
           <CustomButton
@@ -50,7 +50,7 @@ const ForgotPasswordPage = () => {
           <Text>You remember your password?</Text>
           <CustomButton
          
-           onPress={()=> console.log("Sign in")}
+           onPress={()=> navigation.navigate("LoginPage")}
             buttonTextStyle={{
               color: '#0165ff',
               paddingHorizontal: 5,

@@ -34,7 +34,7 @@ export default StyleSheet.create({
      flexDirection:'row',
      alignItems:'center',
      justifyContent:'center',
-     marginBottom:5
+     marginBottom:50
     },
     signUpStyle:{
      fontSize:25,

@@ -3,9 +3,10 @@ import React from 'react'
 import styles from "./LoginPage.style"
 import { CustomImage,CustomButton,CustomTextInput } from '../../components/index'
 
-const LoginPage = () => {
+const LoginPage = ({navigation}) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
+      
 
       <View style={styles.headerContainer}>
         <CustomImage
@@ -18,17 +19,22 @@ const LoginPage = () => {
 
       <View style={styles.contentContainer}>
         <CustomTextInput
-        handlePlaceHolder='User name'
+        placeholder='User name'
+         iconSource={require('../../../assets/Images/LoginPlaceIcon.png')}
         />
         <CustomTextInput
-         handlePlaceHolder='Password'
-         isSecureText={true}
+        iconSource={require('../../../assets/Images/LoginKeyIcon.png')}
+         placeholder='Password'
+         isPassword={true}
+         eyeIconOpen={require('../../../assets/Images/OpenEyeIcon.png')}
+         eyeIconClosed={require('../../../assets/Images/CloseEyeIcon.png')}
+
         />
         <CustomButton
         buttonStyle={{ backgroundColor: 'white', alignSelf: 'flex-end',paddingHorizontal:15 }}
         buttonTextStyle={{color:'#0165ff',fontSize:15,}}
         buttonText='Forget password'
-        onPress={()=> console.log("Forget Password")}
+        onPress={()=> navigation.navigate("ForgotPasswordPage")}
         />
         <CustomButton
         buttonStyle={{backgroundColor:'#0165ff',paddingHorizontal:115,paddingVertical:10,borderRadius:15}}
@@ -70,7 +76,7 @@ const LoginPage = () => {
       buttonStyle={{ }}
       buttonTextStyle={{color:'#0165ff',paddingHorizontal:5,fontSize:15,}}
       buttonText='Sign up?'
-      onPress={()=> console.log("Sign Up")}
+      onPress={()=> navigation.navigate("SignUpPage")}
       />
       </View>
       

@@ -1,12 +1,16 @@
-import {Text, View } from 'react-native'
+import {Text, View,ActivityIndicator} from 'react-native'
 import React from 'react'
 import styles from "./Loader.style"
 
-const Loader = () => {
+const Loader = ({indicatorTextStyle={}}) => {
   return (
-    <View>
-      <Text>Loader</Text>
-    </View>
+ <View style={styles.indicatorContainer}>
+  <Text style={[styles.indicatorTextStyle,indicatorTextStyle]}> Loading...</Text>
+  <ActivityIndicator
+     size="large" color="#242425ff"
+  />
+ </View>
+    
   )
 }
 

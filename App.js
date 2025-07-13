@@ -1,11 +1,13 @@
 import { CustomButton,CustomTextInput } from './src/components/index'
-import { LoginPage,ForgotPasswordPage,SignUpPage } from './src/screens/index'
 import React from 'react'
+import RootNavigation from "./src/navigation/RootNavigation"
+import {Loader} from "./src/components/index"
 
 const App = () => {
   return (
-    <ForgotPasswordPage/>
+    <RootNavigation/>
   )
 }
 
 export default App
+
