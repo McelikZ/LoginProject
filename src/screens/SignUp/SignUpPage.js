@@ -1,11 +1,15 @@
 import { StyleSheet, Text, View, SafeAreaView,KeyboardAvoidingView} from 'react-native';
-import React from 'react';
+import React,{useState} from 'react';
 import styles from "./SignUpPage.style";
 import { CustomButton, CustomImage, CustomTextInput } from '../../components';
 
 const SignUpPage = ({navigation}) => {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState()
+
+
   return (
-   
     <SafeAreaView style={styles.mainContainer}>
         <View style={styles.headerContainer}>
           <CustomImage
@@ -19,13 +23,19 @@ const SignUpPage = ({navigation}) => {
         <View style={styles.contentContainer}>
           <CustomTextInput placeholder='Full name' 
           iconSource={require('../../../assets/Images/LoginPlaceIcon.png')}
+          onChangeText={setName}
+          value={name}
           />
           <CustomTextInput placeholder='Email address'
            iconSource={require('../../../assets/Images/EmailIcon.png')}
+           onChangeText={setEmail}
+           value={email}
            />
           <CustomTextInput placeholder='Password'
           iconSource={require('../../../assets/Images/LoginKeyIcon.png')}
           isPassword={true}
+          onChangeText={setPassword}
+          value={password}
           eyeIconOpen={require('../../../assets/Images/OpenEyeIcon.png')}
           eyeIconClosed={require('../../../assets/Images/CloseEyeIcon.png')}
            />

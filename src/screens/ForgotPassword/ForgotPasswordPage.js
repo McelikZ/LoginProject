@@ -1,9 +1,10 @@
-import { Text, View, SafeAreaView, StatusBar, Platform } from 'react-native';
-import React from 'react';
+import { Text, View, SafeAreaView, StatusBar, Platform, Easing } from 'react-native';
+import React,{useState} from 'react';
 import styles from './ForgotPasswordPage.style';
 import { CustomButton, CustomImage, CustomTextInput } from '../../components/index';
 
 const ForgotPasswordPage = ({navigation}) => {
+  const [email, setEmail] = useState('')
   return (
     <SafeAreaView
     style={styles.mainContainer}
@@ -27,13 +28,14 @@ const ForgotPasswordPage = ({navigation}) => {
             associated with your account.
           </Text>
         </View>
-
+        
         <View style={styles.contentContainer}>
           <CustomTextInput
           iconSource={require('../../../assets/Images/EmailIcon.png')}
           placeholder='Email Address'
+          onChangeText={setEmail}
+          value={email}
           />
-
           <CustomButton
             onPress={()=> console.log("Send OTP")}
             buttonStyle={{

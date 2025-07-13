@@ -1,14 +1,20 @@
 import {Text, View,SafeAreaView } from 'react-native'
-import React from 'react'
+import React,{useState} from 'react'
 import styles from "./LoginPage.style"
 import { CustomImage,CustomButton,CustomTextInput } from '../../components/index'
 
 const LoginPage = ({navigation}) => {
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState()
+
   return (
     <SafeAreaView style={styles.mainContainer}>
-      
+
 
       <View style={styles.headerContainer}>
+        
+
         <CustomImage
          source={require('../../../assets/Images/LoginIcon.png')} 
          imageStyle={{width:225,height:225}}
@@ -19,13 +25,18 @@ const LoginPage = ({navigation}) => {
 
       <View style={styles.contentContainer}>
         <CustomTextInput
-        placeholder='User name'
+         placeholder='Email'
          iconSource={require('../../../assets/Images/LoginPlaceIcon.png')}
+         onChangeText={setEmail}
+         value={email}
+         
         />
         <CustomTextInput
         iconSource={require('../../../assets/Images/LoginKeyIcon.png')}
          placeholder='Password'
          isPassword={true}
+         onChangeText={setPassword}
+         value={password}
          eyeIconOpen={require('../../../assets/Images/OpenEyeIcon.png')}
          eyeIconClosed={require('../../../assets/Images/CloseEyeIcon.png')}
 
@@ -53,9 +64,7 @@ const LoginPage = ({navigation}) => {
       buttonStyle={{paddingHorizontal:0,paddingVertical:0,marginHorizontal:5}}
       imageStyle={{width:70,height:65}}
       showText={false}
-
       />
-      
        <CustomButton
       source={require('../../../assets/Images/FacebookIcon.png')}
       buttonStyle={{paddingHorizontal:0,paddingVertical:0,marginHorizontal:20}}
@@ -63,7 +72,6 @@ const LoginPage = ({navigation}) => {
       imageStyle={{width:45}}
       showText={false}
       />
-      
       </View>
 
       <View style={styles.bottomTextContainer}>
