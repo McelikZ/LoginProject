@@ -1,17 +1,27 @@
-import { Text, View, SafeAreaView, StatusBar, Platform, Easing } from 'react-native';
+import { Text, View, SafeAreaView} from 'react-native';
 import React,{useState} from 'react';
 import styles from './ForgotPasswordPage.style';
-import { CustomButton, CustomImage, CustomTextInput } from '../../components/index';
-import { useDispatch } from 'react-redux';
+import { CustomButton, CustomImage, CustomTextInput,Loader } from '../../components/index';
+import { useDispatch,useSelector } from 'react-redux';
 import { resetPassword } from '../../redux/user/userThunks';
+import { setIsLoading } from '../../redux/user/userSlice';
 
 const ForgotPasswordPage = ({navigation}) => {
   const [email, setEmail] = useState('')
   const dispatch=useDispatch();
+  const {isLoading}=useSelector((state)=> state.user)
+  const handlePress=()=>{
+    dispatch(resetPassword(email));
+    dispatch(setIsLoading(true));
+    navigation.navigate("LoginPage")
+  };
   return (
     <SafeAreaView
     style={styles.mainContainer}
     >
+       {isLoading && <Loader
+       loaderText='OTP Sended.'
+       /> }
       <View style={styles.mainContainer}>
 
         <View style={styles.headerContainer}>
@@ -40,7 +50,7 @@ const ForgotPasswordPage = ({navigation}) => {
           value={email}
           />
           <CustomButton
-            onPress={()=> dispatch(resetPassword(email))}
+            onPress={handlePress}
             buttonStyle={{
               paddingHorizontal: 113,
               paddingVertical: 17,

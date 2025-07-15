@@ -30,10 +30,7 @@ export const autoLogin=createAsyncThunk('user/autoLogin',async()=>{
         throw error
     }
 });
-
-export const resetPassword = createAsyncThunk(
-  "user/resetPassword",
-  async (email) => {
+export const resetPassword = createAsyncThunk("user/resetPassword",async (email) => {
     try {
       return await resetPasswordService(email); 
     } catch (error) {

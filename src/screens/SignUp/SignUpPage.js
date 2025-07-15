@@ -1,19 +1,26 @@
 import { StyleSheet, Text, View, SafeAreaView,KeyboardAvoidingView} from 'react-native';
 import React,{useState} from 'react';
 import styles from "./SignUpPage.style";
-import { CustomButton, CustomImage, CustomTextInput } from '../../components';
+import { CustomButton, CustomImage, CustomTextInput,Loader } from '../../components';
 import { useSelector,useDispatch } from 'react-redux';
 import { register } from '../../redux/user/userThunks';
+import { setIsLoading } from '../../redux/user/userSlice';
 
 const SignUpPage = ({navigation}) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState()
   const dispatch=useDispatch();
-
+  const {isLoading}=useSelector((state)=> state.user)
+  const handlePress=()=>{
+   dispatch(register({email,password}))
+   dispatch(setIsLoading(true))
+  }
 
   return (
     <SafeAreaView style={styles.mainContainer}>
+       {isLoading && <Loader/> }
+
         <View style={styles.headerContainer}>
           <CustomImage
             source={require('../../../assets/Images/SignUpIcon.png')}
@@ -80,7 +87,7 @@ const SignUpPage = ({navigation}) => {
             }}
             buttonTextStyle={{ fontSize: 19 }}
             buttonText='Create Account'
-            onPress={() => dispatch(register({email,password}))}
+            onPress={handlePress}
           />
         </View>
 

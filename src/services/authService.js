@@ -1,4 +1,4 @@
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut,sendPasswordResetEmail } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut,sendPasswordResetEmail,GoogleAuthProvider,FacebookAuthProvider } from "firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const loginService = async (email, password) => {
@@ -42,4 +42,29 @@ export const resetPasswordService=async(email)=>{
     console.log("ResetPasswordError:", error);
     throw error;
   }
+};
+export const googleLoginService = async () => {
+  const auth = getAuth();
+  const { idToken } = await GoogleSignin.signIn();
+  const googleCredential = GoogleAuthProvider.credential(idToken);
+  const userCredential = await signInWithCredential(auth, googleCredential);
+  const user = userCredential.user;
+  const token = user.stsTokenManager.accessToken;
+  await AsyncStorage.setItem("userToken", token);
+  return { user, token };
+};
+
+// Facebook ile Giriş
+export const facebookLoginService = async () => {
+  const auth = getAuth();
+  const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+  if (result.isCancelled) throw new Error("Facebook login cancelled");
+  const data = await AccessToken.getCurrentAccessToken();
+  if (!data) throw new Error("Facebook token alınamadı");
+  const facebookCredential = FacebookAuthProvider.credential(data.accessToken);
+  const userCredential = await signInWithCredential(auth, facebookCredential);
+  const user = userCredential.user;
+  const token = user.stsTokenManager.accessToken;
+  await AsyncStorage.setItem("userToken", token);
+  return { user, token };
 };

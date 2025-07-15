@@ -91,6 +91,7 @@ export const userSlice = createSlice({
         state.user = null;
         state.error = action.payload || "Auto-login failed";
       })
+      //ResetPassword
        .addCase(resetPassword.pending, (state) => {
         state.isLoading = true;
         state.error = null;
@@ -98,7 +99,6 @@ export const userSlice = createSlice({
       .addCase(resetPassword.fulfilled, (state) => {
        state.isLoading = false;
        state.error = null;
- 
       })
       .addCase(resetPassword.rejected, (state, action) => {
        state.isLoading = false;

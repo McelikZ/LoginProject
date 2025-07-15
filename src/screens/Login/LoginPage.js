@@ -1,7 +1,7 @@
 import {Text, View,SafeAreaView } from 'react-native'
 import React,{useState,useEffect} from 'react'
 import styles from "./LoginPage.style"
-import { CustomImage,CustomButton,CustomTextInput } from '../../components/index'
+import { CustomImage,CustomButton,CustomTextInput,Loader } from '../../components/index'
 import { login,autoLogin } from '../../redux/user/userThunks'
 import { useSelector,useDispatch } from 'react-redux'
 
@@ -10,14 +10,17 @@ const LoginPage = ({navigation}) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState()
   const dispatch=useDispatch();
+  const {isLoading}=useSelector((state)=> state.user)
+  {isLoading && <Loader/> }
+
   useEffect(() => {
   dispatch(autoLogin())
-    
   }, [])
   return (
     <SafeAreaView style={styles.mainContainer}>
+        {isLoading && <Loader/> }
 
-
+      
       <View style={styles.headerContainer}>
         
 
