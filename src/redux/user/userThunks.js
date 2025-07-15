@@ -1,10 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { loginService,registerService,logoutService,autoLoginService } from "../../services/authService"
+import { loginService,registerService,logoutService,autoLoginService,resetPasswordService } from "../../services/authService"
 
 export const login=createAsyncThunk('user/login',async({email,password})=>{
     try {
       return await loginService(email,password); 
     } catch (error) {
+        console.log(error);
         throw error
     }
 });
@@ -28,4 +29,16 @@ export const autoLogin=createAsyncThunk('user/autoLogin',async()=>{
     } catch (error) {    
         throw error
     }
-})
+});
+
+export const resetPassword = createAsyncThunk(
+  "user/resetPassword",
+  async (email) => {
+    try {
+      return await resetPasswordService(email); 
+    } catch (error) {
+        throw error
+    }
+  }
+);
+

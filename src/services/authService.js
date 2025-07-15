@@ -1,4 +1,4 @@
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut,sendPasswordResetEmail } from "firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const loginService = async (email, password) => {
@@ -30,4 +30,16 @@ export const autoLoginService = async () => {
   const token = await AsyncStorage.getItem("userToken");
   if (!token) throw new Error("No token found");
   return token;
+};
+
+export const resetPasswordService=async(email)=>{
+
+  const auth = getAuth();
+  try {
+    await sendPasswordResetEmail(auth, email);
+    return "Password reset email sent";
+  } catch (error) {
+    console.log("ResetPasswordError:", error);
+    throw error;
+  }
 };

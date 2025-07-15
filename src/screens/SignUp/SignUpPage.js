@@ -2,11 +2,14 @@ import { StyleSheet, Text, View, SafeAreaView,KeyboardAvoidingView} from 'react-
 import React,{useState} from 'react';
 import styles from "./SignUpPage.style";
 import { CustomButton, CustomImage, CustomTextInput } from '../../components';
+import { useSelector,useDispatch } from 'react-redux';
+import { register } from '../../redux/user/userThunks';
 
 const SignUpPage = ({navigation}) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState()
+  const dispatch=useDispatch();
 
 
   return (
@@ -77,7 +80,7 @@ const SignUpPage = ({navigation}) => {
             }}
             buttonTextStyle={{ fontSize: 19 }}
             buttonText='Create Account'
-            onPress={() => console.log("Create Account")}
+            onPress={() => dispatch(register({email,password}))}
           />
         </View>
 

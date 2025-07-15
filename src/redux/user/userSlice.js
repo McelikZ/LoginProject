@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login, register, logout, autoLogin } from "./userThunks";
+import { login, register, logout, autoLogin,resetPassword } from "./userThunks";
 
 const initialState = {
   isLoading: false,
@@ -34,6 +34,7 @@ export const userSlice = createSlice({
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
         state.isAuth = false;
+        console.log("calismiyor...")
         state.error = action.payload || "Login failed";
       })
 
@@ -89,7 +90,21 @@ export const userSlice = createSlice({
         state.token = null;
         state.user = null;
         state.error = action.payload || "Auto-login failed";
-      });
+      })
+       .addCase(resetPassword.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(resetPassword.fulfilled, (state) => {
+       state.isLoading = false;
+       state.error = null;
+ 
+      })
+      .addCase(resetPassword.rejected, (state, action) => {
+       state.isLoading = false;
+       state.error = action.payload || "Reset password failed";
+      })
+      
   },
 });
 

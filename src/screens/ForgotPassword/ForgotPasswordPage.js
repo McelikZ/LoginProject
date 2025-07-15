@@ -2,9 +2,12 @@ import { Text, View, SafeAreaView, StatusBar, Platform, Easing } from 'react-nat
 import React,{useState} from 'react';
 import styles from './ForgotPasswordPage.style';
 import { CustomButton, CustomImage, CustomTextInput } from '../../components/index';
+import { useDispatch } from 'react-redux';
+import { resetPassword } from '../../redux/user/userThunks';
 
 const ForgotPasswordPage = ({navigation}) => {
   const [email, setEmail] = useState('')
+  const dispatch=useDispatch();
   return (
     <SafeAreaView
     style={styles.mainContainer}
@@ -37,7 +40,7 @@ const ForgotPasswordPage = ({navigation}) => {
           value={email}
           />
           <CustomButton
-            onPress={()=> console.log("Send OTP")}
+            onPress={()=> dispatch(resetPassword(email))}
             buttonStyle={{
               paddingHorizontal: 113,
               paddingVertical: 17,
