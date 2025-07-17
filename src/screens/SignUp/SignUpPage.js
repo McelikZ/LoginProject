@@ -12,6 +12,7 @@ const SignUpPage = ({navigation}) => {
   const [password, setPassword] = useState()
   const dispatch=useDispatch();
   const {isLoading}=useSelector((state)=> state.user)
+  
   const handlePress=()=>{
    dispatch(register({email,password}))
    dispatch(setIsLoading(true))

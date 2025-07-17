@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { loginService,registerService,logoutService,autoLoginService,resetPasswordService } from "../../services/authService"
+import { loginService,registerService,logoutService,autoLoginService,resetPasswordService} from "../../services/authService"
 
 export const login=createAsyncThunk('user/login',async({email,password})=>{
     try {
@@ -30,7 +30,7 @@ export const autoLogin=createAsyncThunk('user/autoLogin',async()=>{
         throw error
     }
 });
-export const resetPassword = createAsyncThunk("user/resetPassword",async (email) => {
+export const resetPassword = createAsyncThunk('user/resetPassword',async (email) => {
     try {
       return await resetPasswordService(email); 
     } catch (error) {

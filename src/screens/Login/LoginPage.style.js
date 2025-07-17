@@ -2,7 +2,6 @@ import { StyleSheet,StatusBar,Platform } from "react-native";
 import {colors,spacing,fonts} from "../../theme/index"
 
 export default StyleSheet.create({
-
    mainContainer:{
     flex:1,
     alignItems:'center',
@@ -48,5 +47,4 @@ export default StyleSheet.create({
    opacity: 0.8,     
    fontSize: fonts.sizes.smallMedium,  
    }
-
 })

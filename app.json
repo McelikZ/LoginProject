@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "LoginProject",
+    "owner": "mcelikz",
     "slug": "LoginProject",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -16,6 +17,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.muhammetcelik.loginproject",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -24,6 +26,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-web-browser"
+    ],
+    "scheme": "LoginProject",
+    "extra": {
+      "eas": {
+        "projectId": "473005af-f5e8-4afa-8661-ab92588598c3"
+      }
     }
   }
 }
