@@ -41,6 +41,10 @@ AsyncStorage: For persistent local storage in React Native apps.
 
 - npm install @react-native-async-storage/async-storage
 
+Expo Build:
+
+- npm install expo
+
 Expo packages:
 
 Included with Expo SDK:
