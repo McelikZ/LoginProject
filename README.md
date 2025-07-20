@@ -4,7 +4,7 @@ Warning:
 
 ### ⚠️ This project is built with Expo.
 Google and Facebook login integrations are not included in this project.
-Please check the other project for these integrations.
+Please check the other project for these integrations (AuthGoogleFacebook)
 
 ### ⚠️ Folder Name Notice
 
