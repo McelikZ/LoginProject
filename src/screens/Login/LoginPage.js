@@ -62,7 +62,7 @@ const LoginPage = ({ navigation }) => {
       <View style={styles.footerContainer}>
         <CustomButton
           source={require("../../../assets/Images/GoogleIcon.png")}
-          onPress={() => console.log("Google")}
+          onPress={()=> console.log("Google Sign In")}
           buttonStyle={{ paddingHorizontal: 0, paddingVertical: 0, marginHorizontal: 5 }}
           imageStyle={{ width: 70, height: 65 }}
           showText={false}

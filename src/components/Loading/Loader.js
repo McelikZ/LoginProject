@@ -13,5 +13,4 @@ const Loader = ({indicatorTextStyle={},loaderText='Loading...'}) => {
     
   )
 }
-
 export default Loader
