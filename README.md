@@ -69,6 +69,8 @@ Components: Reusable UI components used throughout the app.
 
 Themes: Definitions of colors and styles for consistent UI design.
 
+Flexbox
+
 # Project Structure
 
 /src
@@ -89,7 +91,8 @@ Themes: Definitions of colors and styles for consistent UI design.
 
 # Example Design
 
-  <img width="3792" height="2816" alt="Example Design" src="https://github.com/user-attachments/assets/09dfcf7a-4633-4888-8751-d3eafe61c733" />
+ <img width="1275" height="957" alt="ExmpDesign" src="https://github.com/user-attachments/assets/c733f30d-4395-4f8b-aad7-dfdfc8eeee20" />
+
   
 # Design
 
