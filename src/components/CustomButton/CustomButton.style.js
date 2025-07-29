@@ -1,26 +1,25 @@
-import { StyleSheet } from 'react-native';
-import { colors, fonts, spacing } from '../../theme/index';
+import { StyleSheet } from "react-native";
+import { colors, fonts, spacing } from "../../theme/index";
 
 export default StyleSheet.create({
   defaultButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: 15,
     backgroundColor: colors.textSecondary,
     paddingVertical: spacing.small,
-    paddingHorizontal: spacing.huge, 
+    paddingHorizontal: spacing.huge,
   },
   defaultButtonText: {
     color: colors.secondary,
     fontSize: fonts.sizes.large,
   },
-  defaultButtonImageStyle:{
-    width: 60,       
-    height: 60,       
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
-    resizeMode:'contain',
-  }
-
+  defaultButtonImageStyle: {
+    width: 60,
+    height: 60,
+    backgroundColor: "white",
+    justifyContent: "center",
+    alignItems: "center",
+    resizeMode: "contain",
+  },
 });

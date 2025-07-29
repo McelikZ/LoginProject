@@ -1,16 +1,16 @@
-import { StyleSheet, Dimensions } from 'react-native';
-import { colors, spacing, fonts } from '../../theme/index';
+import { StyleSheet, Dimensions } from "react-native";
+import { colors, spacing, fonts } from "../../theme/index";
 
-const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
 export default StyleSheet.create({
   inputWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     borderWidth: 0.3,
     borderColor: colors.textPrimary,
     borderRadius: 15,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     paddingHorizontal: spacing.medium,
     height: 55,
     width: SCREEN_WIDTH * 0.8,
@@ -19,14 +19,14 @@ export default StyleSheet.create({
   },
   defaultTextInput: {
     flex: 1,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: fonts.sizes.medium,
     color: colors.textPrimary,
   },
   iconStyle: {
     width: 20,
     height: 20,
-    resizeMode: 'contain',
+    resizeMode: "contain",
     tintColor: colors.textPrimary,
   },
   defaultTextInputText: {

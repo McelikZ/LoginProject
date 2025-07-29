@@ -6,7 +6,7 @@ export default {
     xlarge: 32,
   },
   weights: {
-    regular: '400',
-    bold: '700',
+    regular: "400",
+    bold: "700",
   },
 };

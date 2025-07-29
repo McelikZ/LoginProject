@@ -1,4 +1,3 @@
-
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -10,7 +9,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const loginService = async (email, password) => {
   const auth = getAuth();
-  const userCredential = await signInWithEmailAndPassword(auth, email, password);
+  const userCredential = await signInWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
   const user = userCredential.user;
   const token = user.stsTokenManager.accessToken;
   await AsyncStorage.setItem("userToken", token);
@@ -19,7 +22,11 @@ export const loginService = async (email, password) => {
 
 export const registerService = async (email, password) => {
   const auth = getAuth();
-  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+  const userCredential = await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
   const user = userCredential.user;
   const token = user.stsTokenManager.accessToken;
   await AsyncStorage.setItem("userToken", token);
@@ -44,4 +51,3 @@ export const resetPasswordService = async (email) => {
   await sendPasswordResetEmail(auth, email);
   return "Password reset email sent";
 };
-

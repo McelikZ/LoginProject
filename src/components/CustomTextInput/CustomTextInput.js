@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { TextInput, Text, View, Image, TouchableOpacity } from 'react-native';
-import styles from './CustomTextInput.style';
+import React, { useState } from "react";
+import { TextInput, Text, View, Image, TouchableOpacity } from "react-native";
+import styles from "./CustomTextInput.style";
 
 const CustomTextInput = ({
-  textTitle = 'default',
+  textTitle = "default",
   showLabel = false,
   textStyle = {},
   textInputStyle = {},
   containerStyle = {},
-  placeholder = 'Default',
+  placeholder = "Default",
   onChangeText,
   value,
   secureTextEntry = false,
   iconSource = null,
   iconStyle = {},
-  isPassword = false, 
-  eyeIconOpen = null, 
-  eyeIconClosed = null, 
+  isPassword = false,
+  eyeIconOpen = null,
+  eyeIconClosed = null,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -54,7 +54,12 @@ const CustomTextInput = ({
           <TouchableOpacity onPress={toggleShowPassword} style={{ padding: 5 }}>
             <Image
               source={showPassword ? eyeIconOpen : eyeIconClosed}
-              style={{ width: 25, height: 25, tintColor: 'gray',resizeMode:'contain' }}
+              style={{
+                width: 25,
+                height: 25,
+                tintColor: "gray",
+                resizeMode: "contain",
+              }}
             />
           </TouchableOpacity>
         )}

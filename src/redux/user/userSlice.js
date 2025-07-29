@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {login,register,logout,autoLogin,resetPassword,} from "./userThunks";
+import {
+  login,
+  register,
+  logout,
+  autoLogin,
+  resetPassword,
+} from "./userThunks";
 
 const initialState = {
   isLoading: false,
@@ -15,7 +21,7 @@ export const userSlice = createSlice({
   reducers: {
     setIsLoading: (state, action) => {
       state.isLoading = action.payload;
-    }, 
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -103,9 +109,9 @@ export const userSlice = createSlice({
       .addCase(resetPassword.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload || "Reset password failed";
-      })
+      });
   },
 });
 
-export const { setIsLoading} = userSlice.actions;
+export const { setIsLoading } = userSlice.actions;
 export default userSlice.reducer;

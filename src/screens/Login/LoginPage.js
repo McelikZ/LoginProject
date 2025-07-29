@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Text, View, SafeAreaView } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { CustomImage, CustomButton, CustomTextInput, Loader } from "../../components/index";
+import {
+  CustomImage,
+  CustomButton,
+  CustomTextInput,
+  Loader,
+} from "../../components/index";
 import { login, autoLogin } from "../../redux/user/userThunks";
 import styles from "./LoginPage.style";
-
 
 const LoginPage = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -13,9 +17,9 @@ const LoginPage = ({ navigation }) => {
   const { isLoading } = useSelector((state) => state.user);
 
   useEffect(() => {
-  dispatch(autoLogin());
-      }, []);  
-      
+    dispatch(autoLogin());
+  }, []);
+
   return (
     <SafeAreaView style={styles.mainContainer}>
       {isLoading && <Loader />}
@@ -26,7 +30,9 @@ const LoginPage = ({ navigation }) => {
           imageStyle={{ width: 225, height: 225 }}
         />
         <Text style={styles.signInStyle}>Sign In</Text>
-        <Text style={styles.enterValidStyle}>Enter valid user name & password to continue</Text>
+        <Text style={styles.enterValidStyle}>
+          Enter valid user name & password to continue
+        </Text>
       </View>
 
       <View style={styles.contentContainer}>
@@ -46,13 +52,22 @@ const LoginPage = ({ navigation }) => {
           eyeIconClosed={require("../../../assets/Images/CloseEyeIcon.png")}
         />
         <CustomButton
-          buttonStyle={{ backgroundColor: "white", alignSelf: "flex-end", paddingHorizontal: 15 }}
+          buttonStyle={{
+            backgroundColor: "white",
+            alignSelf: "flex-end",
+            paddingHorizontal: 15,
+          }}
           buttonTextStyle={{ color: "#0165ff", fontSize: 15 }}
           buttonText="Forget password"
           onPress={() => navigation.navigate("ForgotPasswordPage")}
         />
         <CustomButton
-          buttonStyle={{ backgroundColor: "#0165ff", paddingHorizontal: 115, paddingVertical: 10, borderRadius: 15 }}
+          buttonStyle={{
+            backgroundColor: "#0165ff",
+            paddingHorizontal: 115,
+            paddingVertical: 10,
+            borderRadius: 15,
+          }}
           buttonText="Login"
           onPress={() => dispatch(login({ email, password }))}
         />
@@ -62,14 +77,22 @@ const LoginPage = ({ navigation }) => {
       <View style={styles.footerContainer}>
         <CustomButton
           source={require("../../../assets/Images/GoogleIcon.png")}
-          onPress={()=> console.log("Google Sign In")}
-          buttonStyle={{ paddingHorizontal: 0, paddingVertical: 0, marginHorizontal: 5 }}
+          onPress={() => console.log("Google Sign In")}
+          buttonStyle={{
+            paddingHorizontal: 0,
+            paddingVertical: 0,
+            marginHorizontal: 5,
+          }}
           imageStyle={{ width: 70, height: 65 }}
           showText={false}
         />
         <CustomButton
           source={require("../../../assets/Images/FacebookIcon.png")}
-          buttonStyle={{ paddingHorizontal: 0, paddingVertical: 0, marginHorizontal: 20 }}
+          buttonStyle={{
+            paddingHorizontal: 0,
+            paddingVertical: 0,
+            marginHorizontal: 20,
+          }}
           onPress={() => console.log("Facebook")}
           imageStyle={{ width: 45 }}
           showText={false}
@@ -81,7 +104,11 @@ const LoginPage = ({ navigation }) => {
         <CustomButton
           isTextOnly={true}
           buttonStyle={{}}
-          buttonTextStyle={{ color: "#0165ff", paddingHorizontal: 5, fontSize: 15 }}
+          buttonTextStyle={{
+            color: "#0165ff",
+            paddingHorizontal: 5,
+            fontSize: 15,
+          }}
           buttonText="Sign up?"
           onPress={() => navigation.navigate("SignUpPage")}
         />

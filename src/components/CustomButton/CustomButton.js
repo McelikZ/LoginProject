@@ -1,16 +1,16 @@
-import { Pressable, Text, Image } from 'react-native';
-import React from 'react';
-import styles from './CustomButton.style';
+import { Pressable, Text, Image } from "react-native";
+import React from "react";
+import styles from "./CustomButton.style";
 
 const CustomButton = ({
   onPress,
-  buttonText = 'default',
-  showText=true,
+  buttonText = "default",
+  showText = true,
   buttonStyle = {},
   buttonTextStyle = {},
   imageStyle = {},
   source,
-  isTextOnly = false, 
+  isTextOnly = false,
 }) => {
   if (isTextOnly) {
     return (
@@ -21,7 +21,6 @@ const CustomButton = ({
   }
 
   return (
-
     <Pressable onPress={onPress} style={[styles.defaultButton, buttonStyle]}>
       {source && (
         <Image
@@ -30,14 +29,11 @@ const CustomButton = ({
         />
       )}
 
-      
-      {showText &&(
+      {showText && (
         <Text style={[styles.defaultButtonText, buttonTextStyle]}>
-        {buttonText}
-      </Text>
-
+          {buttonText}
+        </Text>
       )}
-      
     </Pressable>
   );
 };
