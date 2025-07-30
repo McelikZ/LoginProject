@@ -20,6 +20,76 @@ const LoginPage = ({ navigation }) => {
     dispatch(autoLogin());
   }, []);
 
+  const textInput = [
+    {
+      key: "email",
+      placeholder: "Email",
+      iconSource: require("../../../assets/Images/LoginPlaceIcon.png"),
+      onChangeText: setEmail,
+      value: email,
+    },
+    {
+      key: "password",
+      placeholder: "Password",
+      iconSource: require("../../../assets/Images/LoginKeyIcon.png"),
+      onChangeText: setPassword,
+      value: password,
+      isPassword: true,
+      eyeIconOpen: require("../../../assets/Images/OpenEyeIcon.png"),
+      eyeIconClosed: require("../../../assets/Images/CloseEyeIcon.png"),
+    },
+  ];
+
+  const buttons = [
+    {
+      key: "forgetPassword",
+      buttonStyle: {
+        backgroundColor: "white",
+        alignSelf: "flex-end",
+        paddingHorizontal: 15,
+      },
+      buttonTextStyle: { color: "#0165ff", fontSize: 15 },
+      buttonText: "Forget password",
+      onPress: () => navigation.navigate("ForgotPasswordPage"),
+    },
+    {
+      key: "login",
+      buttonStyle: {
+        backgroundColor: "#0165ff",
+        paddingHorizontal: 115,
+        paddingVertical: 10,
+        borderRadius: 15,
+      },
+      buttonText: "Login",
+      onPress: () => dispatch(login({ email, password })),
+    },
+  ];
+
+  const socialButtons = [
+    {
+      key: "google",
+      source: require("../../../assets/Images/GoogleIcon.png"),
+      onPress: () => console.log("Google Sign In"),
+      buttonStyle: {
+        paddingHorizontal: 0,
+        paddingVertical: 0,
+        marginHorizontal: 5,
+      },
+      imageStyle: { width: 70, height: 65 },
+    },
+    {
+      key: "facebook",
+      source: require("../../../assets/Images/FacebookIcon.png"),
+      onPress: () => console.log("Facebook"),
+      buttonStyle: {
+        paddingHorizontal: 0,
+        paddingVertical: 0,
+        marginHorizontal: 20,
+      },
+      imageStyle: { width: 45 },
+    },
+  ];
+
   return (
     <SafeAreaView style={styles.mainContainer}>
       {isLoading && <Loader />}
@@ -36,67 +106,42 @@ const LoginPage = ({ navigation }) => {
       </View>
 
       <View style={styles.contentContainer}>
-        <CustomTextInput
-          placeholder="Email"
-          iconSource={require("../../../assets/Images/LoginPlaceIcon.png")}
-          onChangeText={setEmail}
-          value={email}
-        />
-        <CustomTextInput
-          iconSource={require("../../../assets/Images/LoginKeyIcon.png")}
-          placeholder="Password"
-          isPassword={true}
-          onChangeText={setPassword}
-          value={password}
-          eyeIconOpen={require("../../../assets/Images/OpenEyeIcon.png")}
-          eyeIconClosed={require("../../../assets/Images/CloseEyeIcon.png")}
-        />
-        <CustomButton
-          buttonStyle={{
-            backgroundColor: "white",
-            alignSelf: "flex-end",
-            paddingHorizontal: 15,
-          }}
-          buttonTextStyle={{ color: "#0165ff", fontSize: 15 }}
-          buttonText="Forget password"
-          onPress={() => navigation.navigate("ForgotPasswordPage")}
-        />
-        <CustomButton
-          buttonStyle={{
-            backgroundColor: "#0165ff",
-            paddingHorizontal: 115,
-            paddingVertical: 10,
-            borderRadius: 15,
-          }}
-          buttonText="Login"
-          onPress={() => dispatch(login({ email, password }))}
-        />
+        {textInput.map((item) => (
+          <CustomTextInput
+            key={item.key}
+            placeholder={item.placeholder}
+            iconSource={item.iconSource}
+            onChangeText={item.onChangeText}
+            value={item.value}
+            isPassword={item.isPassword}
+            eyeIconClosed={item.eyeIconClosed}
+            eyeIconOpen={item.eyeIconOpen}
+          />
+        ))}
+
+        {buttons.map((item) => (
+          <CustomButton
+            key={item.key}
+            buttonStyle={item.buttonStyle}
+            buttonTextStyle={item.buttonTextStyle}
+            buttonText={item.buttonText}
+            onPress={item.onPress}
+          />
+        ))}
         <Text style={styles.orContinueWithStyle}>Or Continue with</Text>
       </View>
 
       <View style={styles.footerContainer}>
-        <CustomButton
-          source={require("../../../assets/Images/GoogleIcon.png")}
-          onPress={() => console.log("Google Sign In")}
-          buttonStyle={{
-            paddingHorizontal: 0,
-            paddingVertical: 0,
-            marginHorizontal: 5,
-          }}
-          imageStyle={{ width: 70, height: 65 }}
-          showText={false}
-        />
-        <CustomButton
-          source={require("../../../assets/Images/FacebookIcon.png")}
-          buttonStyle={{
-            paddingHorizontal: 0,
-            paddingVertical: 0,
-            marginHorizontal: 20,
-          }}
-          onPress={() => console.log("Facebook")}
-          imageStyle={{ width: 45 }}
-          showText={false}
-        />
+        {socialButtons.map((item) => (
+          <CustomButton
+            key={item.key}
+            source={item.source}
+            onPress={item.onPress}
+            buttonStyle={item.buttonStyle}
+            imageStyle={item.imageStyle}
+            showText={false}
+          />
+        ))}
       </View>
 
       <View style={styles.bottomTextContainer}>

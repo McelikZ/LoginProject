@@ -29,6 +29,33 @@ const SignUpPage = ({ navigation }) => {
     dispatch(setIsLoading(true));
   };
 
+  const inputFields = [
+    {
+      key: "name",
+      placeholder: "Full name",
+      iconSource: require("../../../assets/Images/LoginPlaceIcon.png"),
+      onChangeText: setName,
+      value: name,
+    },
+    {
+      key: "email",
+      placeholder: "Email address",
+      iconSource: require("../../../assets/Images/EmailIcon.png"),
+      onChangeText: setEmail,
+      value: email,
+    },
+    {
+      key: "password",
+      placeholder: "Password",
+      iconSource: require("../../../assets/Images/LoginKeyIcon.png"),
+      isPassword: true,
+      onChangeText: setPassword,
+      value: password,
+      eyeIconOpen: require("../../../assets/Images/OpenEyeIcon.png"),
+      eyeIconClosed: require("../../../assets/Images/CloseEyeIcon.png"),
+    },
+  ];
+
   return (
     <SafeAreaView style={styles.mainContainer}>
       {isLoading && <Loader />}
@@ -45,27 +72,18 @@ const SignUpPage = ({ navigation }) => {
       </View>
 
       <View style={styles.contentContainer}>
-        <CustomTextInput
-          placeholder="Full name"
-          iconSource={require("../../../assets/Images/LoginPlaceIcon.png")}
-          onChangeText={setName}
-          value={name}
-        />
-        <CustomTextInput
-          placeholder="Email address"
-          iconSource={require("../../../assets/Images/EmailIcon.png")}
-          onChangeText={setEmail}
-          value={email}
-        />
-        <CustomTextInput
-          placeholder="Password"
-          iconSource={require("../../../assets/Images/LoginKeyIcon.png")}
-          isPassword={true}
-          onChangeText={setPassword}
-          value={password}
-          eyeIconOpen={require("../../../assets/Images/OpenEyeIcon.png")}
-          eyeIconClosed={require("../../../assets/Images/CloseEyeIcon.png")}
-        />
+        {inputFields.map((item) => (
+          <CustomTextInput
+            key={item.key}
+            placeholder={item.placeholder}
+            iconSource={item.iconSource}
+            onChangeText={item.onChangeText}
+            value={item.value}
+            isPassword={item.isPassword}
+            eyeIconOpen={item.eyeIconOpen}
+            eyeIconClosed={item.eyeIconClosed}
+          />
+        ))}
 
         <View style={styles.firstRowContainer}>
           <Text style={styles.textLeft}>By signing up, you agree to our</Text>
